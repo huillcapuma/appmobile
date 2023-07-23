@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './pages/usuarios/login/login.page';
+import { RegistrarusuarioPage } from './pages/usuarios/registrarusuario/registrarusuario.page';
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {
@@ -8,9 +11,14 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'ordenesdeservicio-listado',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
+  /*{
+    path: 'login',
+    component: LoginPage,
+    ...canActivate(() => redirectUnauthorizedTo(['/registrarusuario']))
+  },*/
   {
     path: 'clientes-add-edit',
     loadChildren: () => import('./pages/clientes/clientes-add-edit/clientes-add-edit.module').then(m => m.ClientesAddEditPageModule)
@@ -45,12 +53,13 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/usuarios/login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    path: 'registrarusuario',
+    loadChildren: () => import('./pages/usuarios/registrarusuario/registrarusuario.module').then( m => m.RegistrarusuarioPageModule)
   },
+  
 ];
 
 @NgModule({

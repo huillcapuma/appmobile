@@ -28,11 +28,17 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
-
+   
 
   <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
     <ion-fab-button routerDirection="forward" [routerLink]="['/ordenesdeservicio-add-edit/-1']">
       <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onClick()" color="danger">
+      <ion-icon name="log-out"></ion-icon>
     </ion-fab-button>
   </ion-fab>
 </ion-content>

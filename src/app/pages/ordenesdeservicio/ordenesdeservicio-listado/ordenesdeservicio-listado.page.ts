@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { IonList } from '@ionic/angular';
 import { OrdenDeServicio } from 'src/app/models/ordendeservicio.model';
 import { AlertService } from 'src/app/services/alert.service';
 import { OrdenesDeServicioService } from 'src/app/services/ordenesdeservicio.service';
 import { ToastService } from 'src/app/services/toast.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-ordenesdeservicio-listado',
@@ -19,6 +21,8 @@ export class OrdenesdeservicioListadoPage implements OnInit {
     private ordenesDeServicioService: OrdenesDeServicioService,
     private toastService: ToastService,
     private alertService: AlertService,
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -40,6 +44,13 @@ export class OrdenesdeservicioListadoPage implements OnInit {
     } catch (e:any) {
       await this.alertService.presentAlert('Falló', 'Eliminación no fue ejecutada', e, ['Ok']);
     }
+  }
+  onClick() {
+    this.userService.logout()
+      .then(() => {
+        this.router.navigate(['/login']);
+      })
+      .catch(error => console.log(error));
   }
 
 }

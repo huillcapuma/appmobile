@@ -1,0 +1,42 @@
+<div class="avatar-container">
+    <img src="assets/imgs/LogoApp.png" alt="Avatar" class="avatar-image">
+</div>
+
+<div class="input-container">
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <ion-item>
+            <ion-label position="floating">
+                <ion-icon name="person-outline" slot="start"></ion-icon>
+                Email
+            </ion-label>
+            <ion-input type="text" formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">
+                <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+                Password
+            </ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+
+        <div class="ion-padding">
+            <ion-button expand="full" type="submit" class="small-oval-button" shape="round">Iniciar sesión</ion-button>
+        </div>
+
+        </form>
+</div>
+
+
+<div class="ion-padding">
+    <ion-button (click)="onClick()" color="secondary" class="custom-button" shape="round">Acceder con
+        google</ion-button>
+
+        <p> ¿No tienes una cuenta?<a expand="full" color="secondary" routerLink="/registrarusuario"
+            class="register-link">Registrarse</a></p>
+</div>
+
+<!-- Move the closing div tag here -->
+<!--<div class="ion-padding">
+   
+</div> -->
