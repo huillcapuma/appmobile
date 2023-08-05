@@ -45,12 +45,12 @@ export class OrdenesdeservicioListadoPage implements OnInit {
       await this.alertService.presentAlert('Falló', 'Eliminación no fue ejecutada', e, ['Ok']);
     }
   }
-  onClick() {
+  /*onClick() {
     this.userService.logout()
       .then(() => {
         this.router.navigate(['/login']);
       })
       .catch(error => console.log(error));
-  }
+  }*/
 
 }

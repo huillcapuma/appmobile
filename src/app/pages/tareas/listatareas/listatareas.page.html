@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/dashboard"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Lista de Tareas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list class="tareas">
+      <ion-item *ngFor="let place of tareas; let i = index">
+        <ion-thumbnail class="image" [ngStyle]="{ 'background-image': 'url(' + images[i] + ')' }"></ion-thumbnail>
+        <ion-label class="info">
+          <h4>{{ place.name }}</h4>
+          <h4>{{ place.responsable }}</h4>
+          <p>{{ place.descripcion }}</p>
+          <p>{{ place.fechalimite }}</p>
+          <ion-button (click)="onClickDelete(place)" color="danger" fill="outline">Borrar</ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-fab vertical="top" horizontal="end" slot="fixed" edge="true">
+        <ion-fab-button routerDirection="forward" [routerLink]="['/nuevatarea']">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+  </ion-content>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -14,11 +14,13 @@ export class LoginPage implements OnInit {
   
   constructor(
     private userService: UserService,
-    private router: Router) { 
+    private router: Router,
+    private formBuilder: FormBuilder
+    ) { 
 
-      this.formLogin = new FormGroup({
-        email: new FormControl(),
-        password: new FormControl()
+      this.formLogin = this.formBuilder.group({
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6), Validators.pattern(/\d+/)]],
       })
     }
 
@@ -28,7 +30,7 @@ export class LoginPage implements OnInit {
     this.userService.login(this.formLogin.value)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/ordenesdeservicio-listado']);
+        this.router.navigate(['/dashboard']);
       })
       .catch(error => console.log(error));
   }
@@ -37,7 +39,7 @@ export class LoginPage implements OnInit {
     this.userService.loginWithGoogle()
       .then(response => {
         console.log(response);
-        this.router.navigate(['/ordenesdeservicio-listado']);
+        this.router.navigate(['/dashboard']);
       })
       .catch(error => console.log(error))
   }

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/listatareas"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nueva Tarea</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon slot="start" name="clipboard-outline"></ion-icon>
+        Nombre de la tarea:
+        <br>
+      </ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Responsable tarea</ion-label>
+      <ion-select formControlName="responsable" interface="popover">
+        <ion-select-option value="opcion1">Opción 1</ion-select-option>
+        <ion-select-option value="opcion2">Opción 2</ion-select-option>
+        <ion-select-option value="opcion3">Opción 3</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">
+        <ion-icon slot="start" name="document-text-outline"></ion-icon>
+        Descripción de la tarea:
+        <br>
+      </ion-label>
+      <ion-textarea formControlName="descripcion" rows="10"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <!--<ion-icon slot="start" name="calendar-outline"></ion-icon>-->
+        Fecha límite:
+      </ion-label>
+      <ion-input type="date" formControlName="fechalimite"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <ion-icon slot="start" name="images"></ion-icon>
+        Agregar imagen:
+      </ion-label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*"> 
+    </ion-item>
+    
+    <ion-button type="submit" class="ion-margin-vertical" shape="round" color="success">
+      Registrar Tarea
+      <ion-icon slot="start" name="create-outline"></ion-icon>
+    </ion-button>
+  </form>
+</ion-content>

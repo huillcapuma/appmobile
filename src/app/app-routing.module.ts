@@ -59,6 +59,26 @@ const routes: Routes = [
     path: 'registrarusuario',
     loadChildren: () => import('./pages/usuarios/registrarusuario/registrarusuario.module').then( m => m.RegistrarusuarioPageModule)
   },
+  {
+    path: 'listatareas',
+    loadChildren: () => import('./pages/tareas/listatareas/listatareas.module').then( m => m.ListatareasPageModule)
+  },
+  {
+    path: 'about',
+    loadChildren: () => import('./pages/menuconfiguracion/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'ajustes',
+    loadChildren: () => import('./pages/menuconfiguracion/ajustes/ajustes.module').then( m => m.AjustesPageModule)
+  },
+  {
+    path: 'recuperacontrasena',
+    loadChildren: () => import('./pages/usuarios/recuperacontrasena/recuperacontrasena.module').then( m => m.RecuperacontrasenaPageModule)
+  },
+  {
+    path: 'nuevatarea',
+    loadChildren: () => import('./pages/tareas/nuevatarea/nuevatarea.module').then( m => m.NuevatareaPageModule)
+  }
   
 ];
 

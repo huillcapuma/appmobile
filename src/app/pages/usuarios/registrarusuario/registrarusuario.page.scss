@@ -10,3 +10,16 @@
     width: 90%;
     max-width: 400px; /* Optional: Limit the card's maximum width */
   }
+  .sign-up{
+    padding: 50px;
+
+}
+ion-button{
+    width: 170px;
+}
+@media (min-width: 769px){
+    form{
+        width: 500px;
+         padding: 50px 10px;
+    }
+}

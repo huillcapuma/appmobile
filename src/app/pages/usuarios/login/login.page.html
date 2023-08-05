@@ -1,42 +1,80 @@
-<div class="avatar-container">
-    <img src="assets/imgs/LogoApp.png" alt="Avatar" class="avatar-image">
-</div>
+<ion-content>
 
-<div class="input-container">
-    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
-        <ion-item>
-            <ion-label position="floating">
-                <ion-icon name="person-outline" slot="start"></ion-icon>
-                Email
-            </ion-label>
-            <ion-input type="text" formControlName="email"></ion-input>
-        </ion-item>
+    <div class="avatar-container">
+        <img src="assets/imgs/LogoApp.png" alt="Avatar" class="avatar-image">
+    </div>
 
-        <ion-item>
-            <ion-label position="floating">
-                <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
-                Password
-            </ion-label>
-            <ion-input type="password" formControlName="password"></ion-input>
-        </ion-item>
+    <div class="input-container">
+        <form class="ion-text-center" [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+            <ion-item>
+                <ion-label position="floating">
+                    <ion-icon name="person-outline" slot="start"></ion-icon>
+                    Email
+                </ion-label>
+                <ion-input autocomplete="email" type="email" icon="mail-outline" formControlName="email"></ion-input>
+            </ion-item>
 
-        <div class="ion-padding">
-            <ion-button expand="full" type="submit" class="small-oval-button" shape="round">Iniciar sesión</ion-button>
-        </div>
+            <div class="validators">
+                <div *ngIf="formLogin.get('email')?.hasError('required') && formLogin.get('email')?.touched">
+                    El correo es obligatorio.</div>
+                <div *ngIf="formLogin.get('email')?.hasError('email') && formLogin.get('email')?.touched">
+                    Asegúrate de ingresar un correo válido, por favor.</div>
+            </div>
 
+            <ion-item>
+                <ion-label position="floating">
+                    <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+                    Password
+                </ion-label>
+                <ion-input type="password" icon="lock-closed-outline" formControlName="password"></ion-input>
+            </ion-item>
+
+            <div class="validators">
+                <div *ngIf="formLogin.get('password')?.hasError('required') && formLogin.get('password')?.touched">
+                    La contraseña es obligatorio.</div>
+                <div *ngIf="formLogin.get('password')?.hasError('minlength') && formLogin.get('password')?.touched">
+                    La contraseña debe contener por lo menos 6 caracteres.</div>
+                <div *ngIf="formLogin.get('password')?.hasError('pattern') && formLogin.get('password')?.touched">
+                    La contraseña debe contener al menos un número.</div>
+            </div>
+            <div>
+                <div class="ion-margin-vertical">
+                    <ion-button class="ion-margin-vertical" [disabled]="formLogin.invalid" type="submit" shape="round">
+                        Iniciar sesión
+                        <ion-icon slot="start" name="log-in-outline"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <div class="ion-margin-vertical">
+                    <ion-button (click)="onClick()" color="secondary" class="ion-margin-vertical" shape="round">
+                        Acceder con google
+                        <ion-icon slot="start" name="logo-google"></ion-icon>
+                    </ion-button>
+                </div>
+                <div class="sign-up">
+                    No tienes cuenta?
+                    <ion-button routerLink="/registrarusuario" class="ion-margin-vertical" shape="round"
+                        color="secondary">
+                        Registrarse
+                        <ion-icon slot="start" name="person-add-outline"></ion-icon>
+                    </ion-button>
+                </div>
+
+                <div class="form-group mt-3">
+                    <p>
+                        <a [routerLink]="['/recuperacontrasena']"> Olvidaste tu constraseña? </a>
+                    </p>
+                </div>
+            </div>
         </form>
-</div>
+    </div>
 
 
-<div class="ion-padding">
-    <ion-button (click)="onClick()" color="secondary" class="custom-button" shape="round">Acceder con
-        google</ion-button>
 
-        <p> ¿No tienes una cuenta?<a expand="full" color="secondary" routerLink="/registrarusuario"
-            class="register-link">Registrarse</a></p>
-</div>
 
-<!-- Move the closing div tag here -->
-<!--<div class="ion-padding">
-   
-</div> -->
+
+    <!-- Move the closing div tag here -->
+    <!--<div class="ion-padding">
+       
+    </div> -->
+</ion-content>

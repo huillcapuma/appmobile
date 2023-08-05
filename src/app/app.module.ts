@@ -9,14 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormBuilder } from '@angular/forms';
 
 import { DatePicker } from '@ionic-native/date-picker/ngx';
-
 //para conectar a Firebase
 import { ReactiveFormsModule } from '@angular/forms';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { enableIndexedDbPersistence, getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from './credentials';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-
+//para storage de firebase
+import { provideStorage, getStorage} from '@angular/fire/storage'
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -26,7 +26,8 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() =>getFirestore()),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
+    provideStorage(()=> getStorage())
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, 
