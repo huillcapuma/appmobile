@@ -5,7 +5,7 @@ export interface Cliente {
     nombre: string;
     email: string;
     telefono: string;
-    ingreso: number;
+    ingreso?: number | null;
     nacimiento: Date;
     foto: string;
 }

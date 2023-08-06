@@ -9,9 +9,9 @@ export class AppComponent {
   public selectedIndex:any;
   pages = [
     {
-      title: 'Atenciones',
-      url: '/ordenesdeservicio-listado',
-      icon: '/assets/imgs/icon_atenciones.png'
+      title: 'Tareas Asignadas',
+      url: '/asignadas-listado',
+      icon: '/assets/imgs/icon_tareasasignadas.png'
     },
     {
       title: 'Tareas',
@@ -19,14 +19,19 @@ export class AppComponent {
       icon: '/assets/imgs/icon_tareas.png'
     },
     {
-      title: 'Clientes',
-      url: '/clientes-listado',
-      icon: '/assets/imgs/icon_clientes.png'
+      title: 'Miembros del Hogar',
+      url: '/miembros-listado',
+      icon: '/assets/imgs/Miembros_icon.png'
     },
     {
       title: 'Acerca De',
       url: '/about',
       icon: '/assets/imgs/icon_about.png'
+    },
+    {
+      title: 'Ajustes',
+      url: '/ajustes',
+      icon: '/assets/imgs/icon_ajustes.png'
     }
   ];
   constructor() {}

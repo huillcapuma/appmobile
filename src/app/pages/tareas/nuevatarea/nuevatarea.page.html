@@ -19,12 +19,12 @@
     </ion-item>
 
     <ion-item>
-      <ion-label>Responsable tarea</ion-label>
-      <ion-select formControlName="responsable" interface="popover">
-        <ion-select-option value="opcion1">Opción 1</ion-select-option>
-        <ion-select-option value="opcion2">Opción 2</ion-select-option>
-        <ion-select-option value="opcion3">Opción 3</ion-select-option>
-      </ion-select>
+      <ion-label position="floating">
+        <ion-icon slot="start" name="accessibility-outline"></ion-icon>
+        Responsable de tarea:
+        <br>
+      </ion-label>
+      <ion-input type="text" formControlName="responsable"></ion-input>
     </ion-item>
 
     <ion-item>

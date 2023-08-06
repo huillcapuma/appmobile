@@ -2,12 +2,14 @@
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
+        <br>
+        <br>
         <ion-list id="inbox-list">
-          <ion-img style="width: 250px; height: 190px" src="assets/imgs/logodashboard .png" padding>
+         <!-- <ion-img style="width: 250px; height: 190px" src="assets/imgs/logodashboard .png" padding>
           </ion-img>
           <ion-title>Tareas Domésticas</ion-title>
           <ion-item-divider>
-          </ion-item-divider>
+          </ion-item-divider>-->
           <ion-menu-toggle auto-hide="false" *ngFor="let p of pages; let i = index">
             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none"
               detail="false" [class.active-item]="selectedIndex == i">
